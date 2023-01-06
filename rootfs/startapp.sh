@@ -8,4 +8,4 @@ fi
 # configure account and settings
 python /opt/trackma/config.py
 
-exec python /usr/bin/trackma-gtk
+exec python /usr/bin/trackma-qt
