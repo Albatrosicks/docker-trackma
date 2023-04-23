@@ -5,7 +5,8 @@ ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 py3-pip py3-qt5 ca-certificates tzdata ttf-freefont && ln -sf python3 /usr/bin/python
 RUN update-ca-certificates
 RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools pyinotify envparse requests PyQt5 Pillow \
+RUN pip3 install --no-cache pip==21.3.1
+RUN pip3 install --no-cache --upgrade setuptools pyinotify envparse requests PyQt5 Pillow \
  && rm -rf /root/.cache
 
 ARG TRACKMA_VERSION=master
