@@ -6,7 +6,7 @@ RUN apk add --update --no-cache python3 py3-pip py3-qt5 ca-certificates tzdata t
 RUN update-ca-certificates
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache pip==21.3.1
-RUN pip3 install --no-cache --upgrade setuptools pyinotify envparse requests PyQt5 Pillow \
+RUN pip3 install --no-cache --upgrade setuptools pyinotify envparse requests PyQt5 Pillow poetry \
  && rm -rf /root/.cache
 
 ARG TRACKMA_VERSION=master
@@ -18,7 +18,8 @@ RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
     unzip /tmp/trackma-$TRACKMA_VERSION.zip -d /opt && \
     mv /opt/trackma* /opt/trackma &&\
     cd /opt/trackma && \
-    python setup.py develop && \
+    poetry build && \
+    pip3 install dist/trackma-*-py3-none-any.whl && \
     rm -rf /tmp/trackma-$TRACKMA_VERSION.zip && \
     apk del build-dependencies
 
