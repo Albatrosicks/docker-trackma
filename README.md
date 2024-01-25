@@ -1,6 +1,4 @@
-[hub]: https://hub.docker.com/r/frosty5689/trackma/
-
-# frosty5689/trackma
+# albatrosicks/trackma
 [![Docker](https://github.com/Albatrosicks/docker-trackma/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Albatrosicks/docker-trackma/actions/workflows/docker-publish.yml)
 
 ## Usage
@@ -13,7 +11,7 @@ docker run -it \
   -e ACCOUNT_PASSWORD=YOUR_TRACKER_PASSWORD \
   -e ACCOUNT_API=YOUR_TRACKER \
   -e TZ=YOUR_TIMEZONE \
-  frosty5689/trackma
+  albatrosicks/trackma
 ```
 This will run Trackma in interactive mode, to keep it running in background use `-id` or `--interactive --detach`
 
@@ -35,7 +33,7 @@ docker run -id \
   -e PLEX_USER=your_plex_user_name \
   -e PLEX_PASSWD=supersecretpassword \
   -e PLEX_UUID=0cc4151e-fd06-11e7-8be5-0ed5f89f718b \
-  frosty5689/trackma
+  albatrosicks/trackma
 ```
 This will run Trackma in detached mode and monitor Plex and update your MAL anime list automatically.
 It is important to use your Plex username to login instead of email or you may encounter this bug described [here](https://github.com/z411/trackma/issues/464)
@@ -52,9 +50,3 @@ It is important to use your Plex username to login instead of email or you may e
     * For example using `-e SEARCHDIR="/mymedia/videos"` will change the directory Trackma scans for video files
     * All configurable options are available and can be found [here](https://github.com/z411/trackma/blob/master/trackma/utils.py#L350) not all options may be available depending on the version of Trackma you choose to use
     * For a detailed explanation of what most of them do see [here](https://github.com/z411/trackma/wiki/Configuration-File)
-
-
-## Buy me a coffee
-If you appreciate what I do and would like to show some support, buy me a coffee :)
-
-<a href="https://www.buymeacoffee.com/frosty5689" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
