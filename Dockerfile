@@ -29,7 +29,7 @@ VOLUME /config
 
 COPY /rootfs/opt/trackma/config.py /opt/trackma/config.py
 
-COPY /usr/lib/python3.10/site-packages/trackma/lib/libshikimori.py /opt/trackma/trackma/lib/libshikimori.py
+COPY /rootfs/opt/trackma/trackma/lib/libshikimori.py /opt/trackma/trackma/lib/libshikimori.py
 
 COPY /rootfs/startapp.sh /startapp.sh
 
