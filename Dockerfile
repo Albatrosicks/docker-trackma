@@ -29,6 +29,8 @@ VOLUME /config
 
 COPY /rootfs/opt/trackma/config.py /opt/trackma/config.py
 
+COPY /rootfs/opt/trackma/trackma/lib/libshikimori.py /opt/trackma/trackma/lib/libshikimori.py
+
 COPY /rootfs/startapp.sh /startapp.sh
 
 RUN set-cont-env APP_NAME "trackma"
