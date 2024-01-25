@@ -20,7 +20,6 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-import ssl
 
 from trackma import utils
 from trackma.lib.lib import lib
@@ -30,7 +29,7 @@ class libshikimori(lib):
     """
     API class to communicate with Shikimori
 
-    Website: https://shikimori.org
+    Website: https://shikimori.me
 
     messenger: Messenger object to send useful messages to
     """
@@ -116,6 +115,16 @@ class libshikimori(lib):
         'tv_13': utils.Type.TV,
         'tv_24': utils.Type.TV,
         'tv_48': utils.Type.TV,
+        'unknown': utils.Type.UNKNOWN,
+        'manga': utils.Type.MANGA,
+        'novel': utils.Type.NOVEL,
+        'light_novel': utils.Type.NOVEL,
+        'manhwa': utils.Type.MANGA,
+        'manhua': utils.Type.MANGA,
+        'one_shot': utils.Type.ONE_SHOT,
+        'doujinshi': utils.Type.MANGA,
+        'cm':utils.Type.OTHER,
+        'tv_special': utils.Type.SPECIAL
     }
 
     def __init__(self, messenger, account, userconfig):
@@ -138,10 +147,7 @@ class libshikimori(lib):
 
         # handler=urllib.request.HTTPHandler(debuglevel=1)
         # self.opener = urllib.request.build_opener(handler)
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
-        self.opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=ctx))
+        self.opener = urllib.request.build_opener()
         self.opener.addheaders = [('User-agent', 'Trackma')]
 
     def _request(self, method, url, get=None, post=None, jsondata=None, auth=False):
